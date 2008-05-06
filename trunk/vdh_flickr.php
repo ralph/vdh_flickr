@@ -532,7 +532,8 @@ class Thumbnails extends Vdh_Flickr {
 			$set = $this->thumbnails_title();
 			$set = trim($set);
 			$html .= '" rel="lightbox['.$set.']"';
-			$html .= ' title="'.$title.'">';
+			('&nbsp;' == $this->description)? $lightbox_caption = $this->title : $lightbox_caption = $this->description;
+			$html .= ' title="'.$lightbox_caption.'">';
 			$html .= $img_url;
 			$html .= '</a>';
 		}
