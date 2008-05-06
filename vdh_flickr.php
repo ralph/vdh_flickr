@@ -445,7 +445,7 @@ class Thumbnails extends Vdh_Flickr {
 			$this->secret = array_shift($this->xml->xpath('/rsp/photoset/@secret'));
 			$this->title = array_shift($this->xml->xpath('/rsp/photoset/title/text()'));
 			$this->description = array_shift($this->xml->xpath('/rsp/photoset/description/text()'));
-			if (empty($this->description)) $this->description = '&nbsp;';
+			empty($this->description)? $this->description = '&nbsp;' : $this->description = nl2br($this->description);
 		}
 	}
 
