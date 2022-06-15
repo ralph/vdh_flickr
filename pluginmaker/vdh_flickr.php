@@ -10,7 +10,7 @@
 // file name. Uncomment and edit this line to override:
 # $plugin['name'] = 'abc_plugin';
 
-$plugin['version'] = '0.8.13a';
+$plugin['version'] = '0.8.14';
 $plugin['author'] = 'Ralph von der Heyden';
 $plugin['author_uri'] = 'http://www.rvdh.net/vdh_flickr';
 $plugin['description'] = 'Shows your flickr.com pictures in TextPattern.';

@@ -28,7 +28,7 @@ global $nsid;
 class Vdh_Flickr {
 	var $api_key, $email, $nsid, $password, $userdata, $xml, $form, $use_articleurl;
 
-	function Vdh_Flickr($params) {
+	function __construct($params) {
 		$this->api_key = 'c34e40dc707f9bc52736dba56811893f';
 		if(isset($params['error_message'])) {
 			$GLOBALS['text']['error_message'] = $params['error_message'];
@@ -123,7 +123,7 @@ class Gallery extends Vdh_Flickr {
 	var $exceptions = array();
 	var $sets = array();
 
-	function Gallery($params) {
+	function __construct($params) {
 		$this->Vdh_Flickr($params);
 		if (isset($params['except'])) $this->exceptions = explode(",", $params['except']);
 		(isset($params['set_preview_size']))?
@@ -273,7 +273,7 @@ class Thumbnails extends Vdh_Flickr {
 	var $page, $thumbs_per_page, $start, $end, $lastpage, $previous_page, $next_page;
 	var $photos = array(), $tags = array();
 
-	function Thumbnails($params) {
+	function __construct($params) {
 		$this->Vdh_Flickr($params);
 		$this->params = $params;
 		(isset($params['thumbnail_size']))?
@@ -659,7 +659,7 @@ class Picture extends Vdh_Flickr {
 	var $date_posted, $date_taken;
 	var $previous = array(), $next = array(), $tags = array(), $raw_tags = array(), $tag_ids = array();
 
-	function Picture($params) {
+	function __construct($params) {
 		$this->Vdh_Flickr($params);
 		(isset($params['img_size']))?
 		$this->img_size = $params['img_size']:
@@ -893,7 +893,7 @@ class Picture extends Vdh_Flickr {
 class Taglist extends Vdh_Flickr {
 	var $xml, $taglist, $count, $source_tag;
 
-	function Taglist($params) {
+	function __construct($params) {
 		$this->Vdh_Flickr($params);
 	}
 
@@ -935,7 +935,7 @@ class Flickr {
 	var $xmlurl = 'http://www.flickr.com/services/rest/?method=';
 	var $xml;
 
-	function Flickr($method) {
+	function __construct($method) {
 		//$time_start = microtime(true);
 		$this->xmlurl .= $method;
 		if(isset($GLOBALS['use_php4'])) {
